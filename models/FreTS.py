@@ -103,7 +103,7 @@ class Model(nn.Module):
         x = self.tokenEmb(x)
         bias = x
         # [B, N, T, D]
-        if self.channel_independence == "1":
+        if self.channel_independence == 1:
             x = self.MLP_channel(x, B, N, T)
         # [B, N, T, D]
         x = self.MLP_temporal(x, B, N, T)
