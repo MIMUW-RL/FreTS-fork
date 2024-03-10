@@ -17,12 +17,14 @@ data_dict = {
     "covid": Dataset_Covid,
     "ECG": Dataset_Custom_,
     "metr": Dataset_Custom_,
-    "large_mackey_glass_2000": Dataset_HDF,
 }
 
 
 def data_provider(args, flag):
-    Data = data_dict[args.data]
+    if args.data in data_dict.keys():
+        Data = data_dict[args.data]
+    else:
+        Data = Dataset_HDF
     print(Data)
     timeenc = 0 if args.embed != "timeF" else 1
     train_only = args.train_only

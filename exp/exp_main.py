@@ -35,6 +35,8 @@ class Exp_Main(Exp_Basic):
             self.neptune_run["parameters/configuration/model/type"] = args.model
             self.neptune_run["parameters/configuration/model"] = params
             self.neptune_run["parameters/problem_spec"] = args.data
+        else:
+            self.neptune_run = None
 
     def _build_model(self):
         model_dict = {"DLinear": DLinear, "NLinear": NLinear, "FreLinear": FreTS}
